@@ -80,6 +80,8 @@ public class PasscodeView extends LinearLayout implements
 
 
     private void addPasscodeViews() {
+        removeAllViews();
+        removeAllViewsInLayout();
         if (passCodeCount < 0) {
             throw new IllegalStateException("Invalid PassCodeCount > 0 required");
         }

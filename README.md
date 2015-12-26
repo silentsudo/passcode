@@ -3,6 +3,21 @@
 
 *Usage
 
+###Adding to build.gradle for app level
+
+    ```gradle
+        compile(group: 'in.ashish29agre.passcode', name: 'passcode', version: '1.0.0', ext: 'aar');
+    ```
+
+###Adding to project level gradle
+    ```gradle
+        repositories {
+            jcenter()
+            maven {
+                url  "http://dl.bintray.com/ashish29agre/passcode-repo"
+            }
+        }
+    ```
 
      *```xml
      <in.ashish29agre.passcode.PasscodeView

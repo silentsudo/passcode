@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="passcode-1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/in.ashish29agre.passcode/passcode/1.0.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/in.ashish29agre.passcode/passcode/1.0.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/in.ashish29agre.passcode/passcode/1.0.0/dfd0bce33d77f8b61e59083cc93123831cd08053/passcode-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

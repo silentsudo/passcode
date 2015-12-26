@@ -18,6 +18,9 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
+        maven {
+            url  "http://dl.bintray.com/ashish29agre/passcode-repo"
+        }
     }
 }
 

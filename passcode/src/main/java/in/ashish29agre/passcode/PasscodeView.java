@@ -218,7 +218,8 @@ public class PasscodeView extends LinearLayout implements
         InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getWindowToken(), 0);
     }
-    public void show() {
+    public void clearAndShow() {
         addPasscodeViews();
     }
+
 }

@@ -19,6 +19,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -26,15 +29,39 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.0'
 }
 
+def siteUrl = 'https://github.com/ashish29agre/passcode'
+def gitUrl = 'https://github.com/ashish29agre/passcode.git'
+
+
+bintray {
+    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+    configurations = ['archives'] //When uploading configuration files
+    pkg {
+        repo = 'passcode-repo'
+        name = project.name
+        desc = 'Android Passcode View'
+        websiteUrl = siteUrl
+        issueTrackerUrl = 'https://github.com/ashish29agre/passcode/issues'
+        vcsUrl = gitUrl
+        licenses = ['Apache-2.0']
+        labels = ['aar', 'android', 'passcodeview', 'views']
+        publicDownloadNumbers = true
+    }
+
+}
+
+
 install {
     repositories.mavenInstaller {
         pom.project {
             name 'PasscodeView'
             description 'Android Passcode View'
-            url 'https://github.com/ashish29agre/passcode'
+            url siteUrl
             inceptionYear '2015'
 
             packaging 'aar'
+            name 'Bintray publish Gradle aar example'
             groupId 'in.ashish29agre.passcode'
             artifactId 'passcodeview'
             version '1.0'
@@ -46,37 +73,56 @@ install {
                     distribution 'repo'
                 }
             }
-            scm {
-                connection 'https://github.com/ashish29agre/passcode.git'
-                url 'https://github.com/ashish29agre/passcode'
 
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                }
             }
             developers {
                 developer {
                     id 'ashish29agre'
                     name 'Ashish Agre'
+                    email 'ashish29agre@gmail.com'
                 }
+            }
+            scm {
+                connection gitUrl
+                developerConnection gitUrl
+                url siteUrl
+
             }
         }
     }
 }
 
-bintray {
-    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
-    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
-    configurations = ['archives']
-    pkg {
-        repo = 'maven'
-        name = 'PasscodeView'
-        userOrg = user
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/ashish29agre/passcode'
-        version {
-            name = '1.0'
-            desc = 'Android Passcode View'
-            vcsTag = '1.0'
-            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
-        }
-    }
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+task findConventions << {
+    println project.getConvention()
 }
 

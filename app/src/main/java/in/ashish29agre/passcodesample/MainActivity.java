@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         passcodeView.setPassCodeCount(4);
         passcodeView.setDrawableSize(48);
         passcodeView.setPasscodeItemMargin(8);
-        passcodeView.show();
+        passcodeView.clearAndShow();
         passcodeView.setPasscodeCallback(new PasscodeCallback() {
             @Override
             public void onComplete(CharSequence sequence) {

@@ -1,33 +1,28 @@
 #Passcode
 ###Android Passcode view
 
-*Usage
+###Usage
 
 ###Adding to build.gradle for app level
 
-    ```gradle
         compile(group: 'in.ashish29agre.passcode', name: 'passcode', version: '1.0.0', ext: 'aar');
-    ```
 
 ###Adding to project level gradle
-    ```gradle
         repositories {
             jcenter()
             maven {
                 url  "http://dl.bintray.com/ashish29agre/passcode-repo"
             }
         }
-    ```
 
-     *```xml
+###XML
      <in.ashish29agre.passcode.PasscodeView
              android:id="@+id/passcode_view"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:orientation="horizontal"/>
-     ```
 
-    *```java
+###Java
     PasscodeView passcodeView = (PasscodeView) findViewById(R.id.passcode_view);
             passcodeView.setPassCodeCount(4);
             passcodeView.setDrawableSize(48);
@@ -44,7 +39,6 @@
                     }
                 }
             });
-    ```
 
 
 ![Image of Yaktocat](ySmiih.gif)

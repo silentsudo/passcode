@@ -3,8 +3,8 @@
 
 *Usage
 
- *XML
-     ```xml
+
+     *```xml
      <in.ashish29agre.passcode.PasscodeView
              android:id="@+id/passcode_view"
              android:layout_width="match_parent"
@@ -12,8 +12,7 @@
              android:orientation="horizontal"/>
      ```
 
- *Java Code
-    ```java
+    *```java
     PasscodeView passcodeView = (PasscodeView) findViewById(R.id.passcode_view);
             passcodeView.setPassCodeCount(4);
             passcodeView.setDrawableSize(48);

@@ -1,3 +1,6 @@
+
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Passcode-green.svg?style=true)](https://android-arsenal.com/details/1/2951)
+
 #Passcode
 ###Android Passcode view
 

@@ -9,12 +9,16 @@
 ###Adding to build.gradle for app level
 
         compile(group: 'in.ashish29agre.passcode', name: 'passcode', version: '1.0.0', ext: 'aar');
+        or
+        compile 'com.github.ashish29agre:passcode:1.0.0' for jitpack
 
 ###Adding to project level gradle
         repositories {
             jcenter()
             maven {
                 url  "http://dl.bintray.com/ashish29agre/passcode-repo"
+                //for jitpack
+                url "https://jitpack.io"
             }
         }
 
